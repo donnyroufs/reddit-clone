@@ -1,0 +1,17 @@
+{
+  "name": "@rclone/bll",
+  "version": "0.0.0",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "author": "Donny Roufs",
+  "scripts": {
+    "dev": "tsc --w",
+    "build": "tsc"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@kondah/energizor": "^0.2.0",
+    "reflect-metadata": "^0.1.13",
+    "@rclone/dal": "0.0.0"
+  }
+}

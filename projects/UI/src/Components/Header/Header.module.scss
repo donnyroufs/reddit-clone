@@ -1,0 +1,16 @@
+@use '../../Styles/variables' as *;
+
+.header {
+  @include spacing-h;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: $widget;
+  color: white;
+  border-bottom: 1px solid $border;
+
+  &__logo {
+    text-decoration: none;
+    color: $text;
+    font-weight: bold;
+  }
+}

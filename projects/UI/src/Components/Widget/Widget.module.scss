@@ -1,0 +1,13 @@
+@use '../../Styles/variables' as *;
+
+.widget {
+  padding: 2rem;
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__description {
+    line-height: 1.4;
+  }
+}

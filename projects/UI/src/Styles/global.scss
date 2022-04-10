@@ -1,0 +1,10 @@
+@use "./variables" as *;
+
+html {
+  font-family: "IBM Plex Sans", sans-serif;
+  color: $text;
+}
+
+body {
+  background-color: $body;
+}

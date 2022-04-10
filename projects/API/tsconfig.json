@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "composite": true,
+    "declaration": true
+  },
+  "references": [
+    {
+      "path": "../DAL"
+    },
+    {
+      "path": "../BLL"
+    }
+  ]
+}

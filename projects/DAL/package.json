@@ -1,0 +1,21 @@
+{
+  "name": "@rclone/dal",
+  "version": "0.0.0",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "author": "Donny Roufs",
+  "scripts": {
+    "dev": "tsc --w",
+    "build": "tsc"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@kondah/energizor": "^0.2.0",
+    "@types/uuid": "^8.3.4",
+    "better-sqlite3": "^7.5.1",
+    "kysely": "^0.17.1",
+    "pg": "^8.7.3",
+    "reflect-metadata": "^0.1.13",
+    "uuid": "^8.3.2"
+  }
+}
