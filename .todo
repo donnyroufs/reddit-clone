@@ -1,1 +1,4 @@
 todos
+
+- [ ] Add migrations and a real schema for subreddits
+- [ ] Refactor UI to use a Feature driven architecture
