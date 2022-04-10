@@ -6,7 +6,7 @@ Things that you will see in this repo:
 - Use of DI
 - Respecting SOLID
 - N-Tier
-- React, TypeScript, Kysely, Express, Kondah
+- React, TypeScript, Kysely, Express, Kondah, Vite
 - Docker
 - Tests, lots of m
 
@@ -15,8 +15,9 @@ Things that you will see in this repo:
 - [ ] Creating your own subreddit
 - [ ] Creating posts for given subreddit
 - [ ] Login / Register
-- [ ] Join / Follow a subreddit
 - [ ] Comment and reply
+- [ ] Vote system for posts and comments/replies
+- [ ] Join / Follow a subreddit
 - [ ] Notifications
 - [ ] Search subreddits
 - [ ] Subreddit moderation
