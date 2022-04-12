@@ -1,4 +1,8 @@
 todos
 
-- [ ] Add migrations and a real schema for subreddits
+- [x] Add migrations and a real schema for subreddits
+- [x] Fix ESLint and Prettier configuration
+- [ ] Handle unique name
 - [ ] Refactor UI to use a Feature driven architecture
+- [ ] Add tests for existing be code 
+- [ ] continue...
