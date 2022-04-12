@@ -1,8 +1,8 @@
 import { Validator } from "fluentvalidation-ts"
 
-import { IGetAllSubredditsDto } from "@rclone/bll"
+import { GetAllSubredditsDto } from "@rclone/bll"
 
-export class GetAllSubredditsValidator extends Validator<IGetAllSubredditsDto> {
+export class GetAllSubredditsValidator extends Validator<GetAllSubredditsDto> {
   public constructor() {
     super()
 

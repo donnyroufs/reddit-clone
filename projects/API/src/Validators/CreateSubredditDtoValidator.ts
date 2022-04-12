@@ -1,7 +1,7 @@
 import { Validator } from "fluentvalidation-ts"
-import { ICreateRedditDto } from "@rclone/bll"
+import { CreateSubredditDto } from "@rclone/bll"
 
-export class CreateSubredditDtoValidator extends Validator<ICreateRedditDto> {
+export class CreateSubredditDtoValidator extends Validator<CreateSubredditDto> {
   public constructor() {
     super()
 

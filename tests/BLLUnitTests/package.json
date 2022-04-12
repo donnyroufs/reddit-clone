@@ -1,0 +1,21 @@
+{
+  "name": "@rclone/bll-unit-tests",
+  "version": "0.0.0",
+  "private": "true",
+  "author": "Donny Roufs",
+  "scripts": {
+    "test:watch": "jest --watch"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@kondah/energizor": "^0.2.0",
+    "@rclone/bll": "0.0.0",
+    "@rclone/dal": "0.0.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "jest-ts-auto-mock": "^2.1.0",
+    "ts-auto-mock": "^3.5.0",
+    "ttypescript": "^1.5.13"
+  }
+}

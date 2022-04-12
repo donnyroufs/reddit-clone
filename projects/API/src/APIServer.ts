@@ -1,10 +1,9 @@
-import { IBoot, Injectable } from "@kondah/energizor"
+import { IEnergizor } from "@kondah/energizor"
 import cors from "cors"
 import { once } from "events"
 import express from "express"
 import { Server } from "http"
 
-import { energizor } from "./Energizor"
 import { SubredditController } from "./Controllers/SubredditController"
 import AsyncWrapper from "./Lib/AsyncWrapper"
 import { RouteAdapter } from "./Lib/RouteAdapter"
@@ -12,15 +11,15 @@ import { Prop, Transformer } from "./Lib/Transformer"
 import { CreateSubredditDtoValidator } from "./Validators/CreateSubredditDtoValidator"
 import { GetAllSubredditsValidator } from "./Validators/GetAllSubredditsValidator"
 
-@Injectable()
-export class APIServer implements IBoot {
+export class APIServer {
   private _app = express()
   private _server: Server
 
-  public async onBoot(): Promise<void> {
+  public async onSetup(energizor: IEnergizor): Promise<void> {
     this._app.use(cors())
     this._app.use(express.json())
-    this.setupRoutes()
+    this.setupRoutes(energizor)
+
     await this.run()
   }
 
@@ -28,7 +27,7 @@ export class APIServer implements IBoot {
     return this._server
   }
 
-  private setupRoutes() {
+  private setupRoutes(energizor: IEnergizor) {
     this._app.post(
       "/subreddit",
       AsyncWrapper(async (req, res) => {
@@ -63,6 +62,13 @@ export class APIServer implements IBoot {
         return adapter.adapt("query", transformer)(req, res)
       })
     )
+
+    // @ts-expect-error need to implement
+    this._app.use((err, req, res, next) => {
+      // TODO: Implement with Problem Details
+      console.error(err)
+      return res.status(400).json({ error: true, message: err.message })
+    })
   }
 
   private async run() {

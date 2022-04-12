@@ -1,29 +1,36 @@
 import { Injectable } from "@kondah/energizor"
 
 import { SubredditRepository, SubredditEntity } from "@rclone/dal"
-
-import { ICreateRedditDto } from "../Dtos/ICreateSubredditDto"
+import { CreateSubredditDto } from "../Dtos/CreateSubredditDto"
 import { SubredditDto } from "../Dtos/SubredditDto"
+import { EntityAlreadyExistsException } from "../Exceptions/EntityAlreadyExistsException"
 import { IUseCase } from "../Lib/IUseCase"
 
 @Injectable()
 export class CreateSubredditUseCase
-  implements IUseCase<SubredditDto, ICreateRedditDto>
+  implements IUseCase<SubredditDto, CreateSubredditDto>
 {
   public constructor(
     private readonly _subredditRepository: SubredditRepository
   ) {}
 
-  public async execute(input: ICreateRedditDto): Promise<SubredditDto> {
+  public async execute(input: CreateSubredditDto): Promise<SubredditDto> {
     const entity = new SubredditEntity(input.name, input.description)
+
+    await this.throwWhenSubredditAlreadyExistsAsync(input)
 
     const result = await this._subredditRepository.create(entity)
 
-    return new SubredditDto(
-      result.id!,
-      result.name,
-      result.description,
-      result.createdAt
-    )
+    return SubredditDto.fromPersistence(result)
+  }
+
+  private async throwWhenSubredditAlreadyExistsAsync(
+    input: CreateSubredditDto
+  ) {
+    const exists = await this._subredditRepository.exists(input.name)
+
+    if (exists) {
+      throw new EntityAlreadyExistsException()
+    }
   }
 }

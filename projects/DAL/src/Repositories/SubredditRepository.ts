@@ -3,9 +3,14 @@ import { v4 } from "uuid"
 
 import { AbstractRepository } from "../Lib/AbstractRepository"
 import { SubredditEntity } from "../Entities/SubredditEntity"
+import { IWrite } from "../Interfaces/IWrite"
+import { CreateEntityArgs } from "../Interfaces/ICreate"
 
 @Injectable()
-export class SubredditRepository extends AbstractRepository {
+export class SubredditRepository
+  extends AbstractRepository
+  implements IWrite<SubredditEntity>
+{
   public async getAllByPage(page = 0, limit = 1) {
     const result = await this.db
       .getClient()
@@ -24,12 +29,25 @@ export class SubredditRepository extends AbstractRepository {
     return result.length
   }
 
-  public async create(subreddit: SubredditEntity) {
+  public async exists(name: string) {
+    const result = await this.db
+      .getClient()
+      .selectFrom("subreddit")
+      .where("name", "=", name)
+      .select("id")
+      .execute()
+
+    return result.length > 0
+  }
+
+  public async create(
+    subreddit: CreateEntityArgs<SubredditEntity>
+  ): Promise<SubredditEntity> {
     const result = await this.db
       .getClient()
       .insertInto("subreddit")
       .values({
-        id: v4(),
+        id: this.generateId(),
         name: subreddit.name,
         description: subreddit.description,
         createdAt: subreddit.createdAt,

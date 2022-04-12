@@ -2,8 +2,8 @@ import { Injectable } from "@kondah/energizor"
 
 import {
   SubredditServiceLocator,
-  IGetAllSubredditsDto,
-  ICreateRedditDto,
+  GetAllSubredditsDto,
+  CreateSubredditDto,
 } from "@rclone/bll"
 
 import { HttpContext } from "../Lib/HttpContext"
@@ -17,7 +17,7 @@ export class SubredditController extends AbstractController {
     super()
   }
 
-  public async all(ctx: HttpContext<unknown, unknown, IGetAllSubredditsDto>) {
+  public async all(ctx: HttpContext<unknown, unknown, GetAllSubredditsDto>) {
     const subreddits =
       await this._subredditServiceLocator.getAllSubredditsUseCase.execute(
         ctx.query
@@ -26,7 +26,7 @@ export class SubredditController extends AbstractController {
     return this.ok(subreddits)
   }
 
-  public async create(ctx: HttpContext<ICreateRedditDto>) {
+  public async create(ctx: HttpContext<CreateSubredditDto>) {
     const subreddit =
       await this._subredditServiceLocator.createSubredditUseCase.execute(
         ctx.body

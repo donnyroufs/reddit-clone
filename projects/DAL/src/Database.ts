@@ -1,4 +1,3 @@
-import { IBoot } from "@kondah/energizor"
 import { Kysely, PostgresDialect } from "kysely"
 import { SubredditEntity } from "./Entities/SubredditEntity"
 
