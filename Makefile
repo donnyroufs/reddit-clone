@@ -17,3 +17,4 @@ app-fe:
 app:
 	$(MAKE) app-be
 	# $(MAKE) xterm app-frontend
+	

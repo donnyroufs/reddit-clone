@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export interface ICreateSubredditRequest {
-  title: string
+  name: string
   description: string
 }
 
@@ -14,7 +14,7 @@ interface ICreateSubredditResponse extends ISubreddit {}
 
 interface ISubreddit {
   id: string
-  title: string
+  name: string
   description: string
   createdAt: Date
 }

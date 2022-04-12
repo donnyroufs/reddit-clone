@@ -1,4 +1,4 @@
 export interface ICreateRedditDto {
-  title: string
+  name: string
   description: string
 }

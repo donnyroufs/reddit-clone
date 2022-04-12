@@ -15,13 +15,13 @@ export class CreateSubredditUseCase
   ) {}
 
   public async execute(input: ICreateRedditDto): Promise<SubredditDto> {
-    const entity = new SubredditEntity(input.title, input.description)
+    const entity = new SubredditEntity(input.name, input.description)
 
     const result = await this._subredditRepository.create(entity)
 
     return new SubredditDto(
       result.id!,
-      result.title,
+      result.name,
       result.description,
       result.createdAt
     )

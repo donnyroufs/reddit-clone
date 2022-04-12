@@ -32,6 +32,6 @@ export class SubredditController extends AbstractController {
         ctx.body
       )
 
-    return this.created(subreddit, `/subreddits/${subreddit.title}`)
+    return this.created(subreddit, `/subreddits/${subreddit.name}`)
   }
 }

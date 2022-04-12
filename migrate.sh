@@ -1,0 +1,1 @@
+node -r ts-node/register scripts/Migrate.ts $1 $2

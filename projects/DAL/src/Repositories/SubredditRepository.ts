@@ -6,7 +6,7 @@ import { SubredditEntity } from "../Entities/SubredditEntity"
 
 @Injectable()
 export class SubredditRepository extends AbstractRepository {
-  public async getAllByPage(page: number = 0, limit: number = 1) {
+  public async getAllByPage(page = 0, limit = 1) {
     const result = await this.db
       .getClient()
       .selectFrom("subreddit")
@@ -30,7 +30,7 @@ export class SubredditRepository extends AbstractRepository {
       .insertInto("subreddit")
       .values({
         id: v4(),
-        title: subreddit.title,
+        name: subreddit.name,
         description: subreddit.description,
         createdAt: subreddit.createdAt,
       })
@@ -41,11 +41,6 @@ export class SubredditRepository extends AbstractRepository {
   }
 
   private toBLL(raw: any) {
-    return new SubredditEntity(
-      raw.title,
-      raw.description,
-      raw.createdAt,
-      raw.id
-    )
+    return new SubredditEntity(raw.name, raw.description, raw.createdAt, raw.id)
   }
 }

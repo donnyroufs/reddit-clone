@@ -22,7 +22,7 @@ export class GetAllSubredditsUseCase
     return new SubredditsDto(
       result.map(
         (val) =>
-          new SubredditDto(val.id!, val.title, val.description, val.createdAt)
+          new SubredditDto(val.id!, val.name, val.description, val.createdAt)
       ),
       await this.getHasMore(input)
     )

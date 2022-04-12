@@ -5,7 +5,7 @@ export class CreateSubredditDtoValidator extends Validator<ICreateRedditDto> {
   public constructor() {
     super()
 
-    this.ruleFor("title")
+    this.ruleFor("name")
       .must((value) => typeof value === "string")
       .notEmpty()
 

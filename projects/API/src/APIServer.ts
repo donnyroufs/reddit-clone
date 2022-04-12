@@ -34,7 +34,7 @@ export class APIServer implements IBoot {
       AsyncWrapper(async (req, res) => {
         const controller = energizor.get(SubredditController)
         const transformer = new Transformer([
-          new Prop("title", "string"),
+          new Prop("name", "string"),
           new Prop("description", "string"),
         ])
         const adapter = new RouteAdapter(

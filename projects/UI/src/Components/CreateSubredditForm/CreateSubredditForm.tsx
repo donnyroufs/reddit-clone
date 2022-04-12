@@ -6,7 +6,7 @@ import { useCreateSubreddit } from "../../Mutations/createSubreddit"
 export const CreateSubredditForm = () => {
   const [mutate] = useCreateSubreddit()
   const [values, { clear, getPropsForInput }] = useValues({
-    title: "",
+    name: "",
     description: "",
   })
 
@@ -20,8 +20,8 @@ export const CreateSubredditForm = () => {
   return (
     <form onSubmit={handleOnSubmit} className={styles.form}>
       <div>
-        <label htmlFor="title">title</label>
-        <input type="text" name="title" {...getPropsForInput("title")} />
+        <label htmlFor="name">name</label>
+        <input type="text" name="name" {...getPropsForInput("name")} />
       </div>
       <div>
         <label htmlFor="description">description</label>
