@@ -1,0 +1,46 @@
+@use '../../Styles/variables' as *;
+
+.container {
+  &__text {
+    font-family: "Noto Sans";
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+.btn {
+  padding: 0.5rem 0;
+  width: 100%;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--primary {
+    background-color: #d7dadc;
+    color: #1a1a1b;
+    border: none;
+
+    &:hover {
+      background-color: darken(#d7dadc, 5%);
+    }
+  }
+
+  &--secondary {
+    background: none;
+    border: 1px solid #d7dadc;
+    color: #d7dadc;
+
+    &:hover {
+      background-color: lighten($widget, 4%);
+    }
+  }
+
+  &:first-child {
+    margin-bottom: 1rem;
+  }
+}
