@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content,
+.sidebar {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2rem;
+}
+
+.content {
+  flex: 4;
+  margin-right: 2rem;
+}
+
+.sidebar {
+  flex: 2;
+}
