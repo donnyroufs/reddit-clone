@@ -1,5 +1,11 @@
 @use "./variables" as *;
 
+@import "./normalize.scss";
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: "IBM Plex Sans", sans-serif;
   color: $text;

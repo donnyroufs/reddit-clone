@@ -1,5 +1,4 @@
 import "./Styles/global.scss"
-import "./Styles/normalize.scss"
 
 import React from "react"
 import { BrowserRouter } from "react-router-dom"
