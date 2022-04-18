@@ -1,5 +1,4 @@
 import { Injectable } from "@kondah/energizor"
-import { v4 } from "uuid"
 
 import { AbstractRepository } from "../Lib/AbstractRepository"
 import { SubredditEntity } from "../Entities/SubredditEntity"
@@ -50,6 +49,7 @@ export class SubredditRepository
         id: this.generateId(),
         name: subreddit.name,
         description: subreddit.description,
+        userId: subreddit.userId,
         createdAt: subreddit.createdAt,
       })
       .returningAll()
@@ -58,7 +58,13 @@ export class SubredditRepository
     return this.toBLL(result)
   }
 
-  private toBLL(raw: any) {
-    return new SubredditEntity(raw.name, raw.description, raw.createdAt, raw.id)
+  private toBLL(raw: SubredditEntity) {
+    return new SubredditEntity(
+      raw.name,
+      raw.description,
+      raw.userId,
+      raw.createdAt,
+      raw.id
+    )
   }
 }

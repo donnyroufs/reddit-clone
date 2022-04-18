@@ -5,6 +5,7 @@ export class SubredditDto {
     public id: string,
     public name: string,
     public description: string,
+    public userId: string,
     public createdAt: string
   ) {}
 
@@ -12,8 +13,8 @@ export class SubredditDto {
     return new SubredditEntity(
       self.name,
       self.description,
-      self.createdAt,
-      self.id
+      self.id,
+      self.createdAt
     )
   }
 
@@ -22,6 +23,7 @@ export class SubredditDto {
       entity.id!,
       entity.name,
       entity.description,
+      entity.userId,
       entity.createdAt
     )
   }

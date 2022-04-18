@@ -15,7 +15,11 @@ export class CreateSubredditUseCase
   ) {}
 
   public async execute(input: CreateSubredditDto): Promise<SubredditDto> {
-    const entity = new SubredditEntity(input.name, input.description)
+    const entity = new SubredditEntity(
+      input.name,
+      input.description,
+      input.userId
+    )
 
     await this.throwWhenSubredditAlreadyExistsAsync(input)
 

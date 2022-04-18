@@ -8,6 +8,7 @@ export async function up(db: Kysely<ITables>): Promise<void> {
     .addColumn("name", "varchar")
     .addColumn("description", "varchar")
     .addColumn("createdAt", "date")
+    .addColumn("userId", "varchar")
     .addUniqueConstraint("UQ_name", ["name"])
     .execute()
 }
