@@ -1,4 +1,3 @@
-
 prepare:
 	yarn
 	cd projects/DAL && yarn build
@@ -17,3 +16,4 @@ app-fe:
 app:
 	$(MAKE) app-be
 	# $(MAKE) xterm app-frontend
+	

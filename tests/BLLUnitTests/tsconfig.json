@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "plugins": [
+      {
+        "transform": "ts-auto-mock/transformer",
+        "cacheBetweenTests": false
+      }
+    ],
+  },
+  "references": [
+    {
+      "path": "../../projects/BLL"
+    }
+  ],
+  "include": [
+    "./src",
+    "./setupTests.ts"
+  ],
+}

@@ -1,7 +1,7 @@
 export class SubredditModel {
   public constructor(
     public id: string,
-    public title: string,
+    public name: string,
     public description: string
   ) {}
 }

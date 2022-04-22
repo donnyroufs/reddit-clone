@@ -1,0 +1,24 @@
+.container {
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: -2rem 0 1.5rem 0;
+  }
+
+  &__banner {
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-image: url("../../../home-banner@2x.png");
+    height: 34px;
+    width: 100%;
+    z-index: 0;
+  }
+
+  &__character {
+    z-index: 5;
+    height: 70px;
+    transform: translateY(25%);
+    margin-right: 0.5rem;
+  }
+}

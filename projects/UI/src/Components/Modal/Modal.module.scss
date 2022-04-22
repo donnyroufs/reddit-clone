@@ -1,0 +1,25 @@
+@use '../../Styles/variables' as *;
+
+.modal {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: rgba(36, 36, 48, 0.281);
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  &__content {
+    display: flex;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    max-height: 100%;
+    width: 492px;
+    background-color: #1a1a1b;
+    border: 1px solid $border;
+  }
+}

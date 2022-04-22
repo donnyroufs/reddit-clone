@@ -1,7 +1,8 @@
 {
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "prettier"
   ],
   "extends": [
     "plugin:@typescript-eslint/recommended"
@@ -11,9 +12,24 @@
     "@typescript-eslint/explicit-member-accessibility": "error",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "newline-per-chained-call": "error"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/non-null": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "prettier/prettier": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": [
+          "PascalCase"
+        ],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ]
   }
 }

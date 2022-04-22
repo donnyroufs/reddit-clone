@@ -1,16 +1,15 @@
-import { IBoot, Injectable } from "@kondah/energizor"
-import { Kysely, PostgresDialect, SqliteDialect } from "kysely"
+import { Kysely, PostgresDialect } from "kysely"
 import { SubredditEntity } from "./Entities/SubredditEntity"
 
 export interface ITables {
   subreddit: SubredditEntity
 }
 
-export class Database implements IBoot {
+export class Database {
   private _client: Kysely<ITables>
 
+  // TODO: config
   public constructor() {
-    // TODO: config
     this._client = new Kysely({
       dialect: new PostgresDialect({
         host: "localhost",
@@ -19,18 +18,6 @@ export class Database implements IBoot {
         password: "postgres",
       }),
     })
-  }
-
-  async onBoot(): Promise<void> {
-    try {
-      await this._client.schema
-        .createTable("subreddit")
-        .addColumn("id", "uuid", (col) => col.primaryKey())
-        .addColumn("title", "varchar")
-        .addColumn("description", "varchar")
-        .addColumn("createdAt", "date")
-        .execute()
-    } catch (e) {}
   }
 
   public getClient() {

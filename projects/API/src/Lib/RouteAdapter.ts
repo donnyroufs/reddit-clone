@@ -4,6 +4,8 @@ import { Transformer } from "./Transformer"
 import { HttpContext } from "./HttpContext"
 import { HttpResponse } from "./HttpResponse"
 
+const userId = "6433355e-d10d-45f0-8874-9b34380c4f5d"
+
 export class RouteAdapter {
   public constructor(
     private _validator: Validator<any>,
@@ -24,6 +26,9 @@ export class RouteAdapter {
       if (Object.keys(validated).length > 0) {
         throw new Error(JSON.stringify(validated))
       }
+
+      // TODO: Replace with authentication
+      req.body.userId = userId
 
       const httpContext = new HttpContext<any>(
         req,

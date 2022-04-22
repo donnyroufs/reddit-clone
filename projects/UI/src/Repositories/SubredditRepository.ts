@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export interface ICreateSubredditRequest {
-  title: string
+  name: string
   description: string
 }
 
@@ -10,11 +10,11 @@ interface IGetSubredditsResponse {
   hasMore: boolean
 }
 
-interface ICreateSubredditResponse extends ISubreddit {}
+export interface ICreateSubredditResponse extends ISubreddit {}
 
 interface ISubreddit {
   id: string
-  title: string
+  name: string
   description: string
   createdAt: Date
 }
@@ -28,9 +28,13 @@ export class SubredditRepository {
       `http://localhost:5000/subreddit?page=${page}&limit=${limit}`
     )
 
-    // TODO: Mapping
     return {
-      subreddits: data.data.subreddits,
+      subreddits: data.data.subreddits.map((subreddit) => ({
+        id: subreddit.id,
+        createdAt: subreddit.createdAt,
+        description: subreddit.description,
+        name: subreddit.name,
+      })),
       hasMore: data.data.hasMore,
     }
   }
@@ -38,12 +42,16 @@ export class SubredditRepository {
   public static async createSubreddit(
     subreddit: ICreateSubredditRequest
   ): Promise<ISubreddit> {
-    const data = await axios.post<ICreateSubredditResponse>(
+    const { data } = await axios.post<ICreateSubredditResponse>(
       `http://localhost:5000/subreddit`,
       subreddit
     )
 
-    // TODO: Mapping
-    return data.data
+    return {
+      name: data.name,
+      description: data.description,
+      id: data.id,
+      createdAt: data.createdAt,
+    }
   }
 }

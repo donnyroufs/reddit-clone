@@ -1,13 +1,18 @@
 @use '../../Styles/variables' as *;
 
 .widget {
+  border: 1px solid $border;
+  border-radius: 8px;
   padding: 2rem;
+  position: relative;
+  background-color: $widget;
+  color: $widgetText;
 
-  &__title {
-    font-weight: bold;
+  &__header {
+    margin: 0;
   }
 
-  &__description {
-    line-height: 1.4;
+  &__content {
+    margin: 1rem 0 0 0;
   }
 }

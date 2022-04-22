@@ -3,18 +3,16 @@ import "reflect-metadata"
 
 import { Energizor } from "@kondah/energizor"
 
-import { DALCollection } from "@rclone/dal"
-import { BLLCollection } from "@rclone/bll"
+import { Application } from "./Application"
 
-import { APICollection } from "./APICollection"
-import { energizor } from "./Energizor"
+export async function bootstrap(energizor: Energizor) {
+  const app = new Application(energizor)
 
-export async function bootstrap(services: Energizor) {
-  services.addCollection(BLLCollection)
-  services.addCollection(DALCollection)
-  services.addCollection(APICollection)
+  await app.boot()
 
-  await services.boot()
+  return app.getApiClient()
 }
 
-bootstrap(energizor)
+if (process.env.NODE_ENV !== "test") {
+  bootstrap(new Energizor())
+}

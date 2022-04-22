@@ -1,15 +1,16 @@
-import styles from "./Card.module.scss"
+import { ReactNode } from "react"
+import s from "./Widget.module.scss"
 
 interface IWidgetProps {
-  title: string
-  description: string
+  header: ReactNode
+  content: ReactNode
 }
 
-export const Widget = ({ title, description }: IWidgetProps) => {
+export const Widget = ({ header, content }: IWidgetProps) => {
   return (
-    <div className={styles.widget}>
-      <h1 className={styles.widget__title}>{title}</h1>
-      <p className={styles.widget__description}>{description}</p>
+    <div className={s.widget}>
+      <header className={s.widget__header}>{header}</header>
+      <div className={s.widget__content}>{content}</div>
     </div>
   )
 }

@@ -1,4 +1,11 @@
 todos
 
-- [ ] Add migrations and a real schema for subreddits
+- [x] Add migrations and a real schema for subreddits
+- [x] Fix ESLint and Prettier configuration
+- [x] Add (https://typescript-tdd.github.io/ts-auto-mock/)
+- [x] Start building app in TDD
+- [x] Handle unique name
+- [ ] Add authorization and tick off creating subreddit
+- [ ] Add problem details to API
 - [ ] Refactor UI to use a Feature driven architecture
+- [ ] Next feature, start doing proper commits too. 

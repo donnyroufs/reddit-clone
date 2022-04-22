@@ -9,13 +9,14 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@kondah/core": "^0.2.0",
     "@kondah/energizor": "^0.2.0",
+    "@rclone/bll": "0.0.0",
+    "@rclone/dal": "0.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "fluentvalidation-ts": "^2.2.2",
-    "reflect-metadata": "^0.1.13",
-    "@rclone/dal": "0.0.0",
-    "@rclone/bll": "0.0.0"
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",

@@ -1,0 +1,67 @@
+.p-1 {
+  padding: 0.5rem;
+}
+
+.p-2 {
+  padding: 1rem;
+}
+
+.p-3 {
+  padding: 1.5rem;
+}
+
+.p-4 {
+  padding: 2rem;
+}
+
+.pt-1 {
+  padding: 0.5rem 0 0 0;
+}
+
+.pt-2 {
+  padding: 1rem 0 0 0;
+}
+
+.pt-3 {
+  padding: 1.5rem 0 0 0;
+}
+
+.pt-4 {
+  padding: 2rem 0 0 0;
+}
+
+.m-1 {
+  margin: 0.5rem;
+}
+
+.m-2 {
+  margin: 1rem;
+}
+
+.m-3 {
+  margin: 1.5rem;
+}
+
+.m-4 {
+  margin: 2rem;
+}
+
+.mt-1 {
+  margin: 0.5rem 0 0 0;
+}
+
+.mt-2 {
+  margin: 1rem 0 0 0;
+}
+
+.mt-4 {
+  margin: 1.5rem 0 0 0;
+}
+
+.mt-4 {
+  margin: 2rem 0 0 0;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
