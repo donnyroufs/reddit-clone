@@ -38,7 +38,7 @@ export class SubredditControllerSpec {
   public async CreatesASubreddit() {
     const res = await supertest(this._server)
       .post("/subreddit")
-      .send(new CreateSubredditDto("woof", "description"))
+      .send(new CreateSubredditDto("woof", "description", "userId"))
 
     const verificationRes = await supertest(this._server)
       .get("/subreddit?page=0&limit=1")
@@ -65,7 +65,7 @@ export class SubredditControllerSpec {
   public async ReturnsOneSubredditAndHasNoMore() {
     await supertest(this._server)
       .post("/subreddit")
-      .send(new CreateSubredditDto("woof", "description"))
+      .send(new CreateSubredditDto("woof", "description", "userId"))
 
     const res = await supertest(this._server)
       .get("/subreddit?page=0&limit=1")
@@ -80,15 +80,15 @@ export class SubredditControllerSpec {
   public async ReturnsTwoSubredditsAndHasMore() {
     await supertest(this._server)
       .post("/subreddit")
-      .send(new CreateSubredditDto("woof", "description"))
+      .send(new CreateSubredditDto("woof", "description", "userId"))
 
     await supertest(this._server)
       .post("/subreddit")
-      .send(new CreateSubredditDto("woof2", "description"))
+      .send(new CreateSubredditDto("woof2", "description", "userId"))
 
     await supertest(this._server)
       .post("/subreddit")
-      .send(new CreateSubredditDto("woof3", "description"))
+      .send(new CreateSubredditDto("woof3", "description", "userId"))
 
     const res = await supertest(this._server)
       .get("/subreddit?page=0&limit=2")
