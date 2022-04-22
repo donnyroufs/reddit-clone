@@ -10,7 +10,7 @@ interface IGetSubredditsResponse {
   hasMore: boolean
 }
 
-interface ICreateSubredditResponse extends ISubreddit {}
+export interface ICreateSubredditResponse extends ISubreddit {}
 
 interface ISubreddit {
   id: string

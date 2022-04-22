@@ -6,6 +6,7 @@ import ReactDOM from "react-dom"
 import { QueryClient, QueryClientProvider } from "react-query"
 
 import App from "./App"
+import { ModalProvider } from "./Contexts/ModalContext"
 
 const client = new QueryClient()
 
@@ -13,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={client}>
-        <App />
+        <ModalProvider>
+          <App />
+        </ModalProvider>
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>,

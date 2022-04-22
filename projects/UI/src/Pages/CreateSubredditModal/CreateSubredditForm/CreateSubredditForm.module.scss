@@ -1,0 +1,90 @@
+@use '../../../Styles/variables' as *;
+
+.form {
+  &__inner {
+    padding: 1rem;
+  }
+
+  &__label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  &__info {
+    --flow-space: 0.5em;
+    font-size: 0.8rem;
+  }
+
+  &__input {
+    border-radius: 6px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid $border;
+    padding: 0.5rem 1rem 0.5rem 1.3rem;
+    color: $widgetText;
+  }
+
+  &__prefix {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+  }
+
+  &__characters,
+  &__error {
+    font-size: 0.8rem;
+  }
+
+  &__error {
+    color: #ff585b;
+  }
+
+  &__footer {
+    background: #343536;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--primary {
+    background-color: #d7dadc;
+    color: #1a1a1b;
+    border: none;
+
+    &:hover {
+      background-color: darken(#d7dadc, 5%);
+    }
+  }
+
+  &--secondary {
+    background: none;
+    border: 1px solid #d7dadc;
+    color: #d7dadc;
+
+    &:hover {
+      background-color: lighten($widget, 4%);
+    }
+  }
+
+  &:first-child {
+    margin-right: 1rem;
+  }
+}

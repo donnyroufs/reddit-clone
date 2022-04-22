@@ -1,6 +1,8 @@
 @use "./variables" as *;
 
 @import "./normalize.scss";
+@import "./utilities/colours";
+@import "./utilities/spacing";
 
 * {
   box-sizing: border-box;

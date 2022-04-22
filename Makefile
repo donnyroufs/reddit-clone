@@ -1,4 +1,3 @@
-
 prepare:
 	yarn
 	cd projects/DAL && yarn build
