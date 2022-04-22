@@ -12,7 +12,7 @@ Things that you will see in this repo:
 
 ## Features
 
-- [ ] Creating your own subreddit
+- [x] Creating your own subreddit
 - [ ] Creating posts for given subreddit
 - [ ] Login / Register
 - [ ] Comment and reply

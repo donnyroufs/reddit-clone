@@ -5,7 +5,7 @@ todos
 - [x] Add (https://typescript-tdd.github.io/ts-auto-mock/)
 - [x] Start building app in TDD
 - [x] Handle unique name
-- [ ] Add authorization and tick off creating subreddit
+- [x] Add authorization and tick off creating subreddit
 - [ ] Add problem details to API
 - [ ] Refactor UI to use a Feature driven architecture
 - [ ] Next feature, start doing proper commits too. 
