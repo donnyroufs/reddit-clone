@@ -8,10 +8,20 @@ export class GetAllSubredditsValidator extends Validator<GetAllSubredditsDto> {
 
     this.ruleFor("limit")
       .notNull()
-      .must((val) => typeof val === "number")
+      .must((val) => typeof val === "string")
 
     this.ruleFor("page")
       .notNull()
-      .must((val) => typeof val === "number")
+      .must((val) => typeof val === "string")
+  }
+
+  public static fromQuery(val: GetAllSubredditsDto) {
+    const validated = new GetAllSubredditsValidator().validate(val)
+
+    if (Object.keys(validated).length > 0) {
+      throw new Error(JSON.stringify(validated))
+    }
+
+    return val
   }
 }

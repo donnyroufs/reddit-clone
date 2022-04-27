@@ -1,21 +1,18 @@
 import { IEnergizor, Kondah } from "@kondah/core"
-import { Energizor } from "@kondah/energizor"
+import cors from "cors"
+import { Request, Response, json } from "express"
 
 import { BLLCollection } from "@rclone/bll"
 import { DALCollection } from "@rclone/dal"
-import { APIServer } from "./APIServer"
 import { SubredditController } from "./Controllers/SubredditController"
 
-export class Application extends Kondah {
-  private _api: APIServer
+const userId = "6433355e-d10d-45f0-8874-9b34380c4f5d"
 
-  public constructor(energizor: Energizor) {
-    super()
-
-    // @ts-expect-error kondah core is in the middle of a re-write
-    this._energizor = energizor
-  }
-
+export class Application extends Kondah<
+  Request,
+  Response,
+  Express.Application
+> {
   public async configureServices(services: IEnergizor) {
     services.addCollection(DALCollection)
     services.addCollection(BLLCollection)
@@ -24,12 +21,25 @@ export class Application extends Kondah {
   }
 
   public async setup(services: IEnergizor): Promise<void> {
-    this._api = new APIServer()
+    const http = this.getHttpDriver()
 
-    await this._api.onSetup(services)
+    http.addMiddleware(json())
+
+    http.addMiddleware((req, res, next) => {
+      req.body.userId = userId
+      next()
+    })
+
+    http.addMiddleware(
+      cors({
+        origin: "*",
+      })
+    )
+
+    await http.run(5000)
   }
 
-  public getApiClient() {
-    return this._api
+  public getServer() {
+    return this.getHttpDriver().getServer()
   }
 }

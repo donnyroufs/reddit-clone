@@ -13,6 +13,8 @@ Things that you will see in this repo:
 ## Features
 
 - [x] Creating your own subreddit
+- [ ] List all subreddits
+- [ ] Navigate to a given subreddit (includes redirect after create)
 - [ ] Creating posts for given subreddit
 - [ ] Login / Register
 - [ ] Comment and reply

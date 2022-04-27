@@ -15,4 +15,14 @@ export class CreateSubredditDtoValidator extends Validator<CreateSubredditDto> {
       .must((value) => typeof value === "string")
       .notEmpty()
   }
+
+  public static fromBody(val: CreateSubredditDto) {
+    const validated = new CreateSubredditDtoValidator().validate(val)
+
+    if (Object.keys(validated).length > 0) {
+      throw new Error(JSON.stringify(validated))
+    }
+
+    return val
+  }
 }

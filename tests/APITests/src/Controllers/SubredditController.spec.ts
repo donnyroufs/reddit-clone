@@ -16,11 +16,10 @@ export class SubredditControllerSpec {
   public async setup() {
     this._di = new TestableEnergizor()
 
-    const api = await bootstrap(this._di)
+    const app = await bootstrap(this._di as any)
 
     this._database = this._di.get(Database)
-
-    this._server = api.getServerInstance()
+    this._server = app.getServer()
   }
 
   @AfterAll()

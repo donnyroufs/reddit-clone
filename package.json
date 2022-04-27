@@ -15,6 +15,7 @@
   "devDependencies": {
     "@jest-decorated/core": "^0.1.7",
     "@types/jest": "^27.0.3",
+    "@types/lodash": "^4.14.182",
     "@types/node": "^16.11.10",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
@@ -40,5 +41,8 @@
       "yarn prettier --write",
       "yarn test --watchAll=false --findRelatedTests --bail"
     ]
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
